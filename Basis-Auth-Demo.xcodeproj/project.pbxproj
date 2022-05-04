@@ -9,21 +9,41 @@
 /* Begin PBXBuildFile section */
 		18AAC6712822A5A000620FF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6702822A5A000620FF7 /* AppDelegate.swift */; };
 		18AAC6732822A5A000620FF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6722822A5A000620FF7 /* SceneDelegate.swift */; };
-		18AAC6752822A5A000620FF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6742822A5A000620FF7 /* ViewController.swift */; };
 		18AAC6782822A5A000620FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC6762822A5A000620FF7 /* Main.storyboard */; };
 		18AAC67A2822A5A600620FF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC6792822A5A600620FF7 /* Assets.xcassets */; };
 		18AAC67D2822A5A600620FF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC67B2822A5A600620FF7 /* LaunchScreen.storyboard */; };
+		18AAC6A42822A7B300620FF7 /* EmailLandingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC69E2822A7B300620FF7 /* EmailLandingPresenter.swift */; };
+		18AAC6A52822A7B300620FF7 /* EmailLandingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC69F2822A7B300620FF7 /* EmailLandingWorker.swift */; };
+		18AAC6A62822A7B300620FF7 /* EmailLandingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6A02822A7B300620FF7 /* EmailLandingRouter.swift */; };
+		18AAC6A72822A7B300620FF7 /* EmailLandingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6A12822A7B300620FF7 /* EmailLandingModels.swift */; };
+		18AAC6A82822A7B300620FF7 /* EmailLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6A22822A7B300620FF7 /* EmailLandingViewController.swift */; };
+		18AAC6A92822A7B300620FF7 /* EmailLandingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6A32822A7B300620FF7 /* EmailLandingInteractor.swift */; };
+		18AAC6AC2822E38900620FF7 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6AB2822E38900620FF7 /* RequestManager.swift */; };
+		18AAC6AE2822E4BA00620FF7 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6AD2822E4BA00620FF7 /* Globals.swift */; };
+		18AAC6B02822EBD100620FF7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6AF2822EBD100620FF7 /* Extensions.swift */; };
+		18AAC6B22822EC5000620FF7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6B12822EC5000620FF7 /* ActivityIndicator.swift */; };
+		18AAC6B62822EFB200620FF7 /* 20944201.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC6B52822EFB100620FF7 /* 20944201.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18AAC66D2822A5A000620FF7 /* Basis-Auth-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basis-Auth-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AAC6702822A5A000620FF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18AAC6722822A5A000620FF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18AAC6742822A5A000620FF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		18AAC6772822A5A000620FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18AAC6792822A5A600620FF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18AAC67C2822A5A600620FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18AAC67E2822A5A600620FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18AAC69E2822A7B300620FF7 /* EmailLandingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLandingPresenter.swift; sourceTree = "<group>"; };
+		18AAC69F2822A7B300620FF7 /* EmailLandingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLandingWorker.swift; sourceTree = "<group>"; };
+		18AAC6A02822A7B300620FF7 /* EmailLandingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLandingRouter.swift; sourceTree = "<group>"; };
+		18AAC6A12822A7B300620FF7 /* EmailLandingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLandingModels.swift; sourceTree = "<group>"; };
+		18AAC6A22822A7B300620FF7 /* EmailLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLandingViewController.swift; sourceTree = "<group>"; };
+		18AAC6A32822A7B300620FF7 /* EmailLandingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLandingInteractor.swift; sourceTree = "<group>"; };
+		18AAC6AB2822E38900620FF7 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		18AAC6AD2822E4BA00620FF7 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		18AAC6AF2822EBD100620FF7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		18AAC6B12822EC5000620FF7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		18AAC6B52822EFB100620FF7 /* 20944201.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20944201.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +76,73 @@
 		18AAC66F2822A5A000620FF7 /* Basis-Auth-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				18AAC6702822A5A000620FF7 /* AppDelegate.swift */,
-				18AAC6722822A5A000620FF7 /* SceneDelegate.swift */,
-				18AAC6742822A5A000620FF7 /* ViewController.swift */,
+				18AAC6B92822FEB000620FF7 /* Modules */,
+				18AAC6B82822FC9300620FF7 /* Application */,
+				18AAC6B72822FC7200620FF7 /* Helpers */,
+				18AAC6B32822EF9300620FF7 /* Resources */,
 				18AAC6762822A5A000620FF7 /* Main.storyboard */,
 				18AAC6792822A5A600620FF7 /* Assets.xcassets */,
 				18AAC67B2822A5A600620FF7 /* LaunchScreen.storyboard */,
 				18AAC67E2822A5A600620FF7 /* Info.plist */,
 			);
 			path = "Basis-Auth-Demo";
+			sourceTree = "<group>";
+		};
+		18AAC6AA2822A7BA00620FF7 /* EmailLandingScene */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC69E2822A7B300620FF7 /* EmailLandingPresenter.swift */,
+				18AAC69F2822A7B300620FF7 /* EmailLandingWorker.swift */,
+				18AAC6A02822A7B300620FF7 /* EmailLandingRouter.swift */,
+				18AAC6A12822A7B300620FF7 /* EmailLandingModels.swift */,
+				18AAC6A22822A7B300620FF7 /* EmailLandingViewController.swift */,
+				18AAC6A32822A7B300620FF7 /* EmailLandingInteractor.swift */,
+			);
+			path = EmailLandingScene;
+			sourceTree = "<group>";
+		};
+		18AAC6B32822EF9300620FF7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC6B42822EF9E00620FF7 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		18AAC6B42822EF9E00620FF7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC6B52822EFB100620FF7 /* 20944201.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		18AAC6B72822FC7200620FF7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC6AB2822E38900620FF7 /* RequestManager.swift */,
+				18AAC6AD2822E4BA00620FF7 /* Globals.swift */,
+				18AAC6B12822EC5000620FF7 /* ActivityIndicator.swift */,
+				18AAC6AF2822EBD100620FF7 /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		18AAC6B82822FC9300620FF7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC6702822A5A000620FF7 /* AppDelegate.swift */,
+				18AAC6722822A5A000620FF7 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		18AAC6B92822FEB000620FF7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC6AA2822A7BA00620FF7 /* EmailLandingScene */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AAC67D2822A5A600620FF7 /* LaunchScreen.storyboard in Resources */,
+				18AAC6B62822EFB200620FF7 /* 20944201.jpg in Resources */,
 				18AAC67A2822A5A600620FF7 /* Assets.xcassets in Resources */,
 				18AAC6782822A5A000620FF7 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +217,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18AAC6752822A5A000620FF7 /* ViewController.swift in Sources */,
+				18AAC6A62822A7B300620FF7 /* EmailLandingRouter.swift in Sources */,
 				18AAC6712822A5A000620FF7 /* AppDelegate.swift in Sources */,
 				18AAC6732822A5A000620FF7 /* SceneDelegate.swift in Sources */,
+				18AAC6A42822A7B300620FF7 /* EmailLandingPresenter.swift in Sources */,
+				18AAC6B22822EC5000620FF7 /* ActivityIndicator.swift in Sources */,
+				18AAC6A72822A7B300620FF7 /* EmailLandingModels.swift in Sources */,
+				18AAC6A82822A7B300620FF7 /* EmailLandingViewController.swift in Sources */,
+				18AAC6AC2822E38900620FF7 /* RequestManager.swift in Sources */,
+				18AAC6A92822A7B300620FF7 /* EmailLandingInteractor.swift in Sources */,
+				18AAC6AE2822E4BA00620FF7 /* Globals.swift in Sources */,
+				18AAC6B02822EBD100620FF7 /* Extensions.swift in Sources */,
+				18AAC6A52822A7B300620FF7 /* EmailLandingWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
