@@ -11,6 +11,8 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import MaterialComponents
 
 protocol EmailVerifyDisplayLogic: AnyObject
 {
@@ -19,7 +21,7 @@ protocol EmailVerifyDisplayLogic: AnyObject
     func displayVerifyActionFailed()
 }
 
-class EmailVerifyViewController: UIViewController, EmailVerifyDisplayLogic
+class EmailVerifyViewController: UIViewController, UITextFieldDelegate, EmailVerifyDisplayLogic
 {
     var interactor: EmailVerifyBusinessLogic?
     var router: (NSObjectProtocol & EmailVerifyRoutingLogic & EmailVerifyDataPassing)?
@@ -62,12 +64,6 @@ class EmailVerifyViewController: UIViewController, EmailVerifyDisplayLogic
     }
     
     // MARK: View lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(note:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -76,15 +72,14 @@ class EmailVerifyViewController: UIViewController, EmailVerifyDisplayLogic
         interactor?.printValues()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
     func setTextFieldUI() {
-        codeTextField.layer.borderWidth = 2.00
-        codeTextField.layer.borderColor = UIColor.systemIndigo.cgColor
+        codeTextField.delegate = self
+        codeTextField.labelBehavior = .floats
+        codeTextField.label.text = "Verification Code"
+        codeTextField.setFloatingLabelColor(Globals.ColorFactory.indigo, for: MDCTextControlState.editing)
+        codeTextField.setFloatingLabelColor(Globals.ColorFactory.indigo, for: MDCTextControlState.normal)
+        codeTextField.setOutlineColor(Globals.ColorFactory.indigo, for: MDCTextControlState.normal)
+        codeTextField.setOutlineColor(Globals.ColorFactory.indigo, for: MDCTextControlState.editing)
     }
     
     func displayInputEmail(viewModel: EmailVerify.GetEmail.ViewModel)
@@ -93,26 +88,30 @@ class EmailVerifyViewController: UIViewController, EmailVerifyDisplayLogic
     }
     
     func prepareRouterForDashboardTransition(viewModel: EmailVerify.VerifyAction.ViewModel) {
-        
+        DispatchQueue.main.async {
+            ActivityIndicator.stop(controller: self)
+            self.prepareForDashboardTransition()
+        }
     }
     
     func displayVerifyActionFailed() {
-        codeTextField.layer.borderColor = UIColor.systemRed.cgColor
+        DispatchQueue.main.async {
+            ActivityIndicator.stop(controller: self)
+            self.codeTextField.leadingAssistiveLabel.text = "Server Error! Try again."
+            self.codeTextField.setFloatingLabelColor(.red, for: MDCTextControlState.editing)
+        }
     }
     
     // MARK: Implementations
-    @IBOutlet weak var codeTextField: UITextField!
+    @IBOutlet weak var codeTextField: MDCOutlinedTextField!
     @IBOutlet weak var buttonVerifyEmail: UIButton!
     @IBOutlet weak var labelEmailInfo: UILabel!
     @IBOutlet weak var containerStackViewBottomConstraint: NSLayoutConstraint!
     
     @IBAction func buttonVerifyPressed(_ sender: Any) {
-        if (codeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0) == 6 {
-            
-        }
-        else {
-            codeTextField.layer.borderColor = UIColor.systemGray2.cgColor
-        }
+        ActivityIndicator.start(controller: self)
+        let verificationCode = codeTextField.text ?? ""
+        interactor?.verifyUsing(request: EmailVerify.VerifyAction.Request(code: Int(verificationCode)!))
     }
     
     func getUserInputEmail()
@@ -121,34 +120,9 @@ class EmailVerifyViewController: UIViewController, EmailVerifyDisplayLogic
         interactor?.getInputEmail(request: request)
     }
     
-    func showAlert(message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
-            print("Dismiss button")
-        }))
-
-        self.present(alert, animated: true, completion: {
-            print("completion block")
-        })
-    }
-    
-    // MARK: Keyboard
-    @objc func keyboardWillShow(note:Notification) {
-        guard let keyboardFrame = note.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
-        let keyboardRect = keyboardFrame.cgRectValue
-        let keyboardHeight = keyboardRect.height
-        
-        containerStackViewBottomConstraint.constant = keyboardHeight - 20.00
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc func keyboardWillHide(note:Notification) {
-        containerStackViewBottomConstraint.constant = 0.00
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        codeTextField.label.text = "Verification Code"
+        codeTextField.setFloatingLabelColor(Globals.ColorFactory.indigo, for: MDCTextControlState.editing)
+        return true
     }
 }

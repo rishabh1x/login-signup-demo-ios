@@ -33,14 +33,12 @@ enum EmailVerify
     }
     enum VerifyAction {
         struct Request {
-            var code: String
+            var code: Int
         }
         struct Response {
             var success: Bool
             var email: String
-            var code: String
-            var user: VerifyActionAPI.User?
-            var responseMessage: String?
+            var code: Int
             var isLogin: Bool?
         }
         struct ViewModel {

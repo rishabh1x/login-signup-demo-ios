@@ -11,79 +11,123 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialButtons
 
-protocol EmailDashboardDisplayLogic: class
+protocol EmailDashboardDisplayLogic: AnyObject
 {
-  func displaySomething(viewModel: EmailDashboard.Something.ViewModel)
+    func displayPopupWithErrorInfo(viewModel: EmailDashboard.UserInformation.ViewModel)
+    func displayPopupWithSignupInfo(viewModel: EmailDashboard.UserInformation.ViewModel)
+    func displayUserInfo(viewModel: EmailDashboard.UserInformation.ViewModel)
+    func prepareRouterToRetryLogin()
 }
 
 class EmailDashboardViewController: UIViewController, EmailDashboardDisplayLogic
 {
-  var interactor: EmailDashboardBusinessLogic?
-  var router: (NSObjectProtocol & EmailDashboardRoutingLogic & EmailDashboardDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = EmailDashboardInteractor()
-    let presenter = EmailDashboardPresenter()
-    let router = EmailDashboardRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    var interactor: EmailDashboardBusinessLogic?
+    var router: (NSObjectProtocol & EmailDashboardRoutingLogic & EmailDashboardDataPassing)?
+    
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = EmailDashboard.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: EmailDashboard.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+        let viewController = self
+        let interactor = EmailDashboardInteractor()
+        let presenter = EmailDashboardPresenter()
+        let router = EmailDashboardRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    func prepareRouterToRetryLogin() {
+        if let router = router {
+            router.routeToEmailLandingScene()
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        retryLoginButton.titleLabel?.textColor = Globals.ColorFactory.indigo
+        displayUserInformation()
+    }
+    
+    // MARK: Do something
+    
+    @IBOutlet weak var retryLoginButton: MDCButton!
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var nameTextField: UILabel!
+    
+    @IBAction func retryLoginButtonPressed(_ sender: Any) {
+        interactor?.requestRertyLogin()
+    }
+    
+    func displayUserInformation()
+    {
+        let request = EmailDashboard.UserInformation.Request()
+        interactor?.showUserInfo(request: request)
+    }
+    
+    func displayPopupWithSignupInfo(viewModel: EmailDashboard.UserInformation.ViewModel)
+    {
+        let message = "Email: \(viewModel.email)\nOTP: \(viewModel.code)\n\n\(viewModel.responseMessage)"
+        showAlert(message: message)
+        
+        logoImageView.image = UIImage(named: "20943659.jpg")
+        headingLabel.text = "SIGNUP SUCCESSFUL!"
+        headingLabel.textColor = Globals.ColorFactory.indigo
+        retryLoginButton.isHidden = true
+        
+        nameTextField.text = viewModel.email
+    }
+    
+    func displayPopupWithErrorInfo(viewModel: EmailDashboard.UserInformation.ViewModel)
+    {
+        let message = "Email: \(viewModel.email)\nOTP: \(viewModel.code)\n\n\(viewModel.responseMessage)"
+        showAlert(message: message)
+    }
+    
+    func displayUserInfo(viewModel: EmailDashboard.UserInformation.ViewModel)
+    {
+        let userName = viewModel.userFullName
+        nameTextField.text = userName
+        
+        logoImageView.image = UIImage(named: "20943659.jpg")
+        headingLabel.text = "WELCOME"
+        headingLabel.textColor = Globals.ColorFactory.indigo
+        retryLoginButton.isHidden = true
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+            print("Dismiss button")
+        }))
+
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
 }

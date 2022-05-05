@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialActivityIndicator
 
 class ActivityIndicator {
     
@@ -17,11 +18,11 @@ class ActivityIndicator {
             dimContainer.alpha = 0.6
             dimContainer.tag = 131737
             
-            let activity = UIActivityIndicatorView(frame: CGRect(x: controller.view.frame.width/2 - 50, y: controller.view.frame.height/2 - 50, width: 100, height: 100))
-            activity.style = .large
+            let activity = MDCActivityIndicator(frame: CGRect(x: controller.view.frame.width/2 - 50, y: controller.view.frame.height/2 - 50, width: 100, height: 100))
+            activity.tintColor = Globals.ColorFactory.indigo
             activity.backgroundColor = UIColor.clear
             
-            if let oldContainer = controller.view.viewWithTag(131737) as? UIActivityIndicatorView {
+            if let oldContainer = controller.view.viewWithTag(131737) as? MDCActivityIndicator {
                 oldContainer.removeFromSuperview()
             }
             

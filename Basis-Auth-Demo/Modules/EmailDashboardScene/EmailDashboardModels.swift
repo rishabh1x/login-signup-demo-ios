@@ -16,16 +16,30 @@ enum EmailDashboard
 {
   // MARK: Use cases
   
-  enum Something
+  enum UserInformation
   {
     struct Request
     {
+        
     }
     struct Response
     {
+        var isLogin: Bool
+        var verificationIsLogin: Bool
+        var email: String
+        var code: Int
+        var responseMessage: String
+        var apiSuccess: Bool
+        var userFullName: String?
     }
     struct ViewModel
     {
+        var isLogin: Bool
+        var email: String
+        var code: Int
+        var responseMessage: String
+        
+        var userFullName: String?
     }
   }
 }

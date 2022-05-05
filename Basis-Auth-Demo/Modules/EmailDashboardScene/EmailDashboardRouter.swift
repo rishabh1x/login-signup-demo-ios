@@ -14,47 +14,24 @@ import UIKit
 
 @objc protocol EmailDashboardRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToEmailLandingScene()
 }
 
 protocol EmailDashboardDataPassing
 {
-  var dataStore: EmailDashboardDataStore? { get }
+    var dataStore: EmailDashboardDataStore? { get }
 }
 
 class EmailDashboardRouter: NSObject, EmailDashboardRoutingLogic, EmailDashboardDataPassing
 {
-  weak var viewController: EmailDashboardViewController?
-  var dataStore: EmailDashboardDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: EmailDashboardViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: EmailDashboardDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    weak var viewController: EmailDashboardViewController?
+    var dataStore: EmailDashboardDataStore?
+    
+    // MARK: Routing
+    func routeToEmailLandingScene() {
+        print("\nRouting Backward...\n")
+        if let landingVC = viewController?.navigationController?.viewControllers.first {
+            viewController?.navigationController?.popToViewController(landingVC, animated: true)
+        }
+    }
 }

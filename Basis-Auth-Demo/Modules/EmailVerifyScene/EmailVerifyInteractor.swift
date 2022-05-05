@@ -24,17 +24,24 @@ protocol EmailVerifyDataStore
     var isLogin: Bool? { get set }
     var token: Int? { get set }
     var email: String? { get set }
-    var verificationCode: String? { get set }
+    var verificationCode: Int? { get set }
     var verificationIsLogin: Bool? { get set }
+    var userName: String? { get set }
+    var responseMessage: String { get set }
+    var isApiSuccess: Bool { get set }
 }
 
 class EmailVerifyInteractor: EmailVerifyBusinessLogic, EmailVerifyDataStore
 {
+    var userName: String?
+    var isApiSuccess: Bool = false
+    var responseMessage: String = ""
+    
     var isLogin: Bool?
     var token: Int?
     var email: String?
     
-    var verificationCode: String?
+    var verificationCode: Int?
     var verificationIsLogin: Bool?
     
     var presenter: EmailVerifyPresentationLogic?
@@ -56,7 +63,7 @@ class EmailVerifyInteractor: EmailVerifyBusinessLogic, EmailVerifyDataStore
         let verificationEmail = email ?? ""
         let verificationToken = token ?? 0
         
-        let jsonData = "{ \"email\" : \"\(verificationEmail)\", \"token\" : \"\(verificationToken)\", \"verificationCode\" : \"\(verificationCode ?? "")\" }"
+        let jsonData = "{ \"email\" : \"\(verificationEmail)\", \"token\" : \"\(verificationToken)\", \"verificationCode\" : \"\(verificationCode ?? 0)\" }"
         
         callApi(jsonData: jsonData)
     }
@@ -67,11 +74,15 @@ class EmailVerifyInteractor: EmailVerifyBusinessLogic, EmailVerifyDataStore
         worker?.sendVerifyRequestToServer(jsonData: jsonData, onCompletion: { [unowned self] apiResponse, success in
             let response = EmailVerify.VerifyAction.Response.init(success: success,
                                                                   email: email ?? "",
-                                                                  code: verificationCode ?? "",
-                                                                  user: apiResponse?.results?.user,
-                                                                  responseMessage: apiResponse?.message,
+                                                                  code: verificationCode ?? 0,
                                                                   isLogin: apiResponse?.results?.isLogin)
             self.verificationIsLogin = apiResponse?.results?.isLogin
+            
+            let userObject = apiResponse?.results?.user
+            let userFullName = (userObject?.firstName ?? "") + " " + (userObject?.lastName ?? "")
+            self.userName = userFullName.trimmingCharacters(in: .whitespaces)
+            self.responseMessage = apiResponse?.message ?? ""
+            self.isApiSuccess = apiResponse?.success ?? false
             self.presenter?.presentVerifyActionResponse(response: response)
         })
     }

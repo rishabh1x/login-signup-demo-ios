@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cSF-4k-UpF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,45 +23,52 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="20943394.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rVD-0f-4QD">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FGO-xu-OVD">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FGO-xu-OVD">
                                         <rect key="frame" x="0.0" y="409" width="414" height="409"/>
                                         <subviews>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vm-LM-jXp">
-                                                <rect key="frame" x="16" y="20" width="380" height="64.5"/>
+                                                <rect key="frame" x="16" y="20" width="380" height="45.5"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="BUTTON">
                                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDU-dv-DHF">
-                                                <rect key="frame" x="16" y="89.5" width="380" height="55"/>
+                                                <rect key="frame" x="16" y="85.5" width="380" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your email address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfw-Oy-mUw">
-                                                <rect key="frame" x="16" y="149.5" width="380" height="44.5"/>
+                                                <rect key="frame" x="16" y="144" width="380" height="31.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email Adress" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="a2Y-fR-v0U">
-                                                <rect key="frame" x="16" y="199" width="380" height="55"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Adress" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="a2Y-fR-v0U" customClass="MDCOutlinedTextField">
+                                                <rect key="frame" x="16" y="195.5" width="380" height="35.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                 <connections>
                                                     <action selector="emailTextFieldDidBeginEditing:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Scp-jC-pau"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYR-oQ-mPX">
-                                                <rect key="frame" x="16" y="259" width="380" height="74"/>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ok5-Kq-uJs">
+                                                <rect key="frame" x="16" y="251" width="380" height="70"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYR-oQ-mPX" customClass="MDCRaisedButton">
+                                                <rect key="frame" x="16" y="341" width="380" height="48"/>
                                                 <color key="backgroundColor" red="0.34562091503268022" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="CDw-Q9-Ljd"/>
+                                                    <constraint firstAttribute="height" constant="48" id="CDw-Q9-Ljd"/>
                                                 </constraints>
                                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="SUBMIT">
+                                                <buttonConfiguration key="configuration" style="plain" title="SUBMIT" cornerStyle="small">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
@@ -68,18 +76,10 @@
                                                     <action selector="buttonGetOTPPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HLv-9D-abI"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ok5-Kq-uJs">
-                                                <rect key="frame" x="16" y="338" width="380" height="51"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="BUTTON">
-                                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                                </buttonConfiguration>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="a2Y-fR-v0U" firstAttribute="height" secondItem="hYR-oQ-mPX" secondAttribute="height" multiplier="0.74359" id="dLX-03-akZ"/>
                                             <constraint firstItem="yDU-dv-DHF" firstAttribute="height" secondItem="cfw-Oy-mUw" secondAttribute="height" multiplier="1.2381" id="e97-3c-WMo"/>
-                                            <constraint firstItem="cfw-Oy-mUw" firstAttribute="height" secondItem="a2Y-fR-v0U" secondAttribute="height" multiplier="0.807692" id="pEv-Ds-4OQ"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="20" left="16" bottom="20" right="18"/>
                                     </stackView>
@@ -124,47 +124,54 @@
                                         <rect key="frame" x="0.0" y="431" width="414" height="431"/>
                                         <subviews>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20w-NT-Wpw">
-                                                <rect key="frame" x="16" y="20" width="380" height="60"/>
+                                                <rect key="frame" x="16" y="20" width="380" height="58"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="BUTTON">
                                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Verification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F11-mg-OeR">
-                                                <rect key="frame" x="16" y="85" width="380" height="51"/>
+                                                <rect key="frame" x="16" y="83" width="380" height="49.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please 6 digit code sent to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePx-Gi-nDU">
-                                                <rect key="frame" x="16" y="141" width="380" height="41"/>
+                                                <rect key="frame" x="16" y="137.5" width="380" height="39.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@domain.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8V-LU-ro2">
-                                                <rect key="frame" x="16" y="187" width="380" height="42"/>
+                                                <rect key="frame" x="16" y="182" width="380" height="40.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Verification Code" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZPq-Cq-149">
-                                                <rect key="frame" x="16" y="234" width="380" height="51"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verification Code" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZPq-Cq-149" customClass="MDCOutlinedTextField">
+                                                <rect key="frame" x="16" y="227.5" width="380" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
                                                 <connections>
                                                     <action selector="emailTextFieldDidBeginEditing:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="AB7-XN-JjD"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRG-SU-HG3">
-                                                <rect key="frame" x="16" y="290" width="380" height="69"/>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvH-8U-3aN">
+                                                <rect key="frame" x="16" y="268.5" width="380" height="89.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRG-SU-HG3" customClass="MDCRaisedButton">
+                                                <rect key="frame" x="16" y="363" width="380" height="48"/>
                                                 <color key="backgroundColor" red="0.34562091499999997" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="p9B-zF-Irb"/>
+                                                    <constraint firstAttribute="height" constant="48" id="p9B-zF-Irb"/>
                                                 </constraints>
                                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="VERIFY">
+                                                <buttonConfiguration key="configuration" style="plain" title="VERIFY" cornerStyle="small">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
@@ -173,18 +180,10 @@
                                                     <action selector="buttonVerifyPressed:" destination="AoD-Rt-8Ja" eventType="touchUpInside" id="hXv-9u-5is"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvH-8U-3aN">
-                                                <rect key="frame" x="16" y="364" width="380" height="47"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="BUTTON">
-                                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
-                                                </buttonConfiguration>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="S8V-LU-ro2" firstAttribute="height" secondItem="ePx-Gi-nDU" secondAttribute="height" multiplier="1.0122" id="KZJ-eb-1LZ"/>
                                             <constraint firstItem="ZPq-Cq-149" firstAttribute="height" secondItem="IRG-SU-HG3" secondAttribute="height" multiplier="0.74359" id="bzz-nb-Zu9"/>
-                                            <constraint firstItem="ePx-Gi-nDU" firstAttribute="height" secondItem="ZPq-Cq-149" secondAttribute="height" multiplier="0.807692" id="jog-AX-AL6"/>
                                             <constraint firstItem="F11-mg-OeR" firstAttribute="height" secondItem="ePx-Gi-nDU" secondAttribute="height" multiplier="1.2381" id="rzr-WF-pxy"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="20" left="16" bottom="20" right="18"/>
@@ -223,42 +222,43 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aGE-Lf-IL7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="20943659.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4sc-Pf-D5A">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="20943401.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4sc-Pf-D5A">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="431"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zyT-eK-tfa">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zyT-eK-tfa">
                                         <rect key="frame" x="0.0" y="431" width="414" height="431"/>
                                         <subviews>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvF-j9-xKC">
-                                                <rect key="frame" x="16" y="20" width="380" height="107"/>
+                                                <rect key="frame" x="16" y="20" width="380" height="94"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="BUTTON">
                                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                                 </buttonConfiguration>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xj5-1g-EIN">
-                                                <rect key="frame" x="16" y="132" width="380" height="91.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login Error!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xj5-1g-EIN">
+                                                <rect key="frame" x="16" y="119" width="380" height="94"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                <color key="textColor" systemColor="systemIndigoColor"/>
+                                                <color key="textColor" systemColor="systemPinkColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rishabh Sharma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwK-Eh-usx">
-                                                <rect key="frame" x="16" y="228.5" width="380" height="73.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwK-Eh-usx">
+                                                <rect key="frame" x="16" y="218" width="380" height="94"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="587-wn-YgK">
-                                                <rect key="frame" x="16" y="307" width="380" height="104"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyJ-5h-TFo" customClass="MDCButton">
+                                                <rect key="frame" x="16" y="317" width="380" height="94"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="BUTTON">
-                                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Retry Login">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                                    <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="retryLoginButtonPressed:" destination="0YD-dd-5Jw" eventType="touchUpInside" id="TVx-L6-Tg4"/>
+                                                </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="xj5-1g-EIN" firstAttribute="height" secondItem="XwK-Eh-usx" secondAttribute="height" multiplier="1.2381" id="9vl-eU-d6o"/>
-                                        </constraints>
                                         <edgeInsets key="layoutMargins" top="20" left="16" bottom="20" right="18"/>
                                     </stackView>
                                 </subviews>
@@ -273,6 +273,12 @@
                             <constraint firstItem="aGE-Lf-IL7" firstAttribute="leading" secondItem="Ge0-7g-YaQ" secondAttribute="leading" id="kBn-2U-yqV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="headingLabel" destination="xj5-1g-EIN" id="0gq-dI-doV"/>
+                        <outlet property="logoImageView" destination="4sc-Pf-D5A" id="qix-aT-twq"/>
+                        <outlet property="nameTextField" destination="XwK-Eh-usx" id="rYl-T2-icg"/>
+                        <outlet property="retryLoginButton" destination="uyJ-5h-TFo" id="uq6-mq-xe0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6g-HM-C8W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,13 +304,16 @@
     </scenes>
     <resources>
         <image name="20943394.jpg" width="3710.39990234375" height="3710.39990234375"/>
-        <image name="20943659.jpg" width="3710.39990234375" height="3710.39990234375"/>
+        <image name="20943401.jpg" width="3710.39990234375" height="3710.39990234375"/>
         <image name="20944201.jpg" width="3710.39990234375" height="3710.39990234375"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

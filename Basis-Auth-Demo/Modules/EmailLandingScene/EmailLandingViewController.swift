@@ -11,6 +11,8 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import MaterialComponents.MaterialButtons
 
 protocol EmailLandingDisplayLogic: AnyObject
 {
@@ -58,69 +60,51 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
             router.routeToVerifyScene()
         }
     }
-    /*
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-     {
-     if let scene = segue.identifier {
-     let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-     if let router = router, router.responds(to: selector) {
-     router.perform(selector, with: segue)
-     }
-     }
-     }
-     */
     
     // MARK: View lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(note:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        emailTextField.delegate = self
         setTextFieldUI()
-        beautify()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        emailTextField.sizeToFit()
     }
     
     func setTextFieldUI() {
-        emailTextField.layer.borderWidth = 2.00
-        emailTextField.layer.borderColor = UIColor.systemIndigo.cgColor
-    }
-    
-    func beautify() {
-        
-        //button
-        
-        
-        //textfield
+        emailTextField.labelBehavior = .floats
+        emailTextField.label.text = "Email Address"
+        emailTextField.setFloatingLabelColor(Globals.ColorFactory.indigo, for: MDCTextControlState.editing)
+        emailTextField.setFloatingLabelColor(Globals.ColorFactory.indigo, for: MDCTextControlState.normal)
+        emailTextField.setOutlineColor(Globals.ColorFactory.indigo, for: MDCTextControlState.normal)
+        emailTextField.setOutlineColor(Globals.ColorFactory.indigo, for: MDCTextControlState.editing)
     }
     
     // MARK: Do something
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: MDCOutlinedTextField!
     @IBOutlet weak var buttonGetOTP: UIButton!
     @IBOutlet weak var containerStackViewBottomConstraint: NSLayoutConstraint!
     
     @IBAction func buttonGetOTPPressed(_ sender: Any) {
         if validateEmailAgainstRegex() {
             ActivityIndicator.start(controller: self)
-            let request = EmailLanding.LoginAction.LoginRequest(email: "rishabh1x@gmail.com")
+            let email = emailTextField.text ?? ""
+            let request = EmailLanding.LoginAction.LoginRequest(email: email)
             interactor?.loginUsing(request: request)
         }
         else {
-            emailTextField.layer.borderColor = UIColor.systemRed.cgColor
+            emailTextField.setOutlineColor(.red, for: .normal)
+            emailTextField.label.text = "Invalid Email!"
+            emailTextField.setFloatingLabelColor(.red, for: MDCTextControlState.editing)
         }
     }
     
     @IBAction func emailTextFieldDidBeginEditing(_ sender: UITextField) {
-        sender.layer.borderColor = UIColor.systemIndigo.cgColor
+        setTextFieldUI()
     }
     
     func validateEmailAgainstRegex() -> Bool {
@@ -134,16 +118,12 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
         DispatchQueue.main.async {
             ActivityIndicator.stop(controller: self)
             if (viewModel.apiSuccess) {
-                self.emailTextField.isUserInteractionEnabled = false
-                self.buttonGetOTP.isUserInteractionEnabled = false
-                self.buttonGetOTP.backgroundColor = .systemGray2
-                print("\nReady for routing to the -- verify scene\n")
-                
                 self.interactor?.routeToVerifyScene()
             }
             else {
-                self.emailTextField.layer.borderColor = UIColor.systemRed.cgColor
-                print("\nAPI Status", viewModel.apiSuccess)
+                self.emailTextField.setOutlineColor(.red, for: .normal)
+                self.emailTextField.leadingAssistiveLabel.text = "Server Error! Try again."
+                self.emailTextField.setFloatingLabelColor(.red, for: MDCTextControlState.editing)
             }
         }
     }
@@ -151,23 +131,12 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
     func callRouterForVerifyTransition(viewModel: EmailLanding.PostLoginAction.ViewModel) {
         prepareForVerifyTransition()
     }
-    
-    // MARK: Keyboard
-    @objc func keyboardWillShow(note:Notification) {
-        guard let keyboardFrame = note.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
-        let keyboardRect = keyboardFrame.cgRectValue
-        let keyboardHeight = keyboardRect.height
-        
-        containerStackViewBottomConstraint.constant = keyboardHeight - 20.00
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc func keyboardWillHide(note:Notification) {
-        containerStackViewBottomConstraint.constant = 0.00
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
+}
+
+extension EmailLandingViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        emailTextField.label.text = "Email Address"
+        emailTextField.setFloatingLabelColor(Globals.ColorFactory.indigo, for: MDCTextControlState.editing)
+        return true
     }
 }

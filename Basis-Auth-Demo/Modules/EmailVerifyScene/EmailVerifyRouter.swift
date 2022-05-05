@@ -45,6 +45,9 @@ class EmailVerifyRouter: NSObject, EmailVerifyRoutingLogic, EmailVerifyDataPassi
         destination.email = source.email
         destination.verificationIsLogin = source.verificationIsLogin
         destination.verificationCode = source.verificationCode
+        destination.userName = source.userName
+        destination.message = source.responseMessage
+        destination.success = source.isApiSuccess
     }
     
 }

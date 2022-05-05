@@ -14,18 +14,33 @@ import UIKit
 
 protocol EmailDashboardPresentationLogic
 {
-  func presentSomething(response: EmailDashboard.Something.Response)
+    func displayUserInfo(response: EmailDashboard.UserInformation.Response)
+    func prepareRouterForRetryLogin()
 }
 
 class EmailDashboardPresenter: EmailDashboardPresentationLogic
 {
-  weak var viewController: EmailDashboardDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: EmailDashboard.Something.Response)
-  {
-    let viewModel = EmailDashboard.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    weak var viewController: EmailDashboardDisplayLogic?
+    
+    // MARK: Do something
+    
+    func displayUserInfo(response: EmailDashboard.UserInformation.Response)
+    {
+        let viewModel = EmailDashboard.UserInformation.ViewModel(isLogin: response.isLogin, email: response.email, code: response.code, responseMessage: response.responseMessage, userFullName: response.userFullName)
+        if !response.verificationIsLogin {
+            if response.apiSuccess {
+                viewController?.displayPopupWithSignupInfo(viewModel: viewModel)
+            }
+            else {
+                viewController?.displayPopupWithErrorInfo(viewModel: viewModel)
+            }
+        }
+        else {
+            viewController?.displayUserInfo(viewModel: viewModel)
+        }
+    }
+    
+    func prepareRouterForRetryLogin() {
+        viewController?.prepareRouterToRetryLogin()
+    }
 }

@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import UIKit.UIColor
 
 class Globals: NSObject {
+    class ColorFactory: NSObject {
+        static let indigo = UIColor.init(red: 88/255, green: 86/255, blue: 214/255, alpha: 1.00)
+    }
+    
     static let base_url: String = "https://hiring.getbasis.co/"
     
     struct API_ENDPOINTS {

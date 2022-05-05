@@ -14,23 +14,29 @@ import UIKit
 
 protocol EmailDashboardBusinessLogic
 {
-    func doSomething(request: EmailDashboard.Something.Request)
+    func showUserInfo(request: EmailDashboard.UserInformation.Request)
+    func requestRertyLogin()
 }
 
 protocol EmailDashboardDataStore
 {
     var isLogin: Bool? { get set }
     var email: String? { get set }
-    var verificationCode: String? { get set }
+    var verificationCode: Int? { get set }
     var verificationIsLogin: Bool? { get set }
+    var message: String { get set }
+    var userName: String? { get set }
+    var success: Bool { get set }
 }
 
 class EmailDashboardInteractor: EmailDashboardBusinessLogic, EmailDashboardDataStore
 {
+    var success: Bool = false
+    var message: String = ""
+    var userName: String?
     var isLogin: Bool?
-    var token: Int?
     var email: String?
-    var verificationCode: String?
+    var verificationCode: Int?
     var verificationIsLogin: Bool?
     
     var presenter: EmailDashboardPresentationLogic?
@@ -39,12 +45,19 @@ class EmailDashboardInteractor: EmailDashboardBusinessLogic, EmailDashboardDataS
     
     // MARK: Do something
     
-    func doSomething(request: EmailDashboard.Something.Request)
+    func showUserInfo(request: EmailDashboard.UserInformation.Request)
     {
-        worker = EmailDashboardWorker()
-        worker?.doSomeWork()
-        
-        let response = EmailDashboard.Something.Response()
-        presenter?.presentSomething(response: response)
+        let response = EmailDashboard.UserInformation.Response(isLogin: isLogin ?? false,
+                                                               verificationIsLogin: verificationIsLogin ?? false,
+                                                               email: email ?? "",
+                                                               code: verificationCode ?? 0,
+                                                               responseMessage: message,
+                                                               apiSuccess: success,
+                                                               userFullName: userName)
+        presenter?.displayUserInfo(response: response)
+    }
+    
+    func requestRertyLogin() {
+        presenter?.prepareRouterForRetryLogin()
     }
 }

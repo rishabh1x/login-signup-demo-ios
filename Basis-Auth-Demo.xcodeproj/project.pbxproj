@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18AAC6712822A5A000620FF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6702822A5A000620FF7 /* AppDelegate.swift */; };
-		18AAC6732822A5A000620FF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6722822A5A000620FF7 /* SceneDelegate.swift */; };
 		18AAC6782822A5A000620FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC6762822A5A000620FF7 /* Main.storyboard */; };
 		18AAC67A2822A5A600620FF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC6792822A5A600620FF7 /* Assets.xcassets */; };
 		18AAC67D2822A5A600620FF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC67B2822A5A600620FF7 /* LaunchScreen.storyboard */; };
@@ -37,12 +36,13 @@
 		18AAC7E72823D11E00620FF7 /* EmailDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC7E12823D11D00620FF7 /* EmailDashboardViewController.swift */; };
 		18AAC7E82823D11E00620FF7 /* EmailDashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC7E22823D11D00620FF7 /* EmailDashboardInteractor.swift */; };
 		18AAC7EB2823D31F00620FF7 /* 20943659.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC7EA2823D31F00620FF7 /* 20943659.jpg */; };
+		18AAC7ED2823E14C00620FF7 /* 20943401.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC7EC2823E14C00620FF7 /* 20943401.jpg */; };
+		2130E392B18A395CA2AD2E93 /* Pods_Basis_Auth_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6115BF5EDAD76076FC8E1A62 /* Pods_Basis_Auth_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18AAC66D2822A5A000620FF7 /* Basis-Auth-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basis-Auth-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AAC6702822A5A000620FF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18AAC6722822A5A000620FF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		18AAC6772822A5A000620FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18AAC6792822A5A600620FF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18AAC67C2822A5A600620FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +72,10 @@
 		18AAC7E12823D11D00620FF7 /* EmailDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDashboardViewController.swift; sourceTree = "<group>"; };
 		18AAC7E22823D11D00620FF7 /* EmailDashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDashboardInteractor.swift; sourceTree = "<group>"; };
 		18AAC7EA2823D31F00620FF7 /* 20943659.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20943659.jpg; sourceTree = "<group>"; };
+		18AAC7EC2823E14C00620FF7 /* 20943401.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20943401.jpg; sourceTree = "<group>"; };
+		6115BF5EDAD76076FC8E1A62 /* Pods_Basis_Auth_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basis_Auth_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7124F0D152352F1A08ED6ACF /* Pods-Basis-Auth-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basis-Auth-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Basis-Auth-Demo/Pods-Basis-Auth-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		C1AA6B86CD738179DA4C5A81 /* Pods-Basis-Auth-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basis-Auth-Demo.release.xcconfig"; path = "Target Support Files/Pods-Basis-Auth-Demo/Pods-Basis-Auth-Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2130E392B18A395CA2AD2E93 /* Pods_Basis_Auth_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +95,8 @@
 			children = (
 				18AAC66F2822A5A000620FF7 /* Basis-Auth-Demo */,
 				18AAC66E2822A5A000620FF7 /* Products */,
+				A59D3C52975BBCD840751549 /* Pods */,
+				C3E90CA155E6163FE6EAFD91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +147,7 @@
 		18AAC6B42822EF9E00620FF7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				18AAC7EC2823E14C00620FF7 /* 20943401.jpg */,
 				18AAC7EA2823D31F00620FF7 /* 20943659.jpg */,
 				18AAC7DB2823C4B000620FF7 /* 20943394.jpg */,
 				18AAC6B52822EFB100620FF7 /* 20944201.jpg */,
@@ -162,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				18AAC6702822A5A000620FF7 /* AppDelegate.swift */,
-				18AAC6722822A5A000620FF7 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -203,6 +210,23 @@
 			path = EmailDashboardScene;
 			sourceTree = "<group>";
 		};
+		A59D3C52975BBCD840751549 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7124F0D152352F1A08ED6ACF /* Pods-Basis-Auth-Demo.debug.xcconfig */,
+				C1AA6B86CD738179DA4C5A81 /* Pods-Basis-Auth-Demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C3E90CA155E6163FE6EAFD91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6115BF5EDAD76076FC8E1A62 /* Pods_Basis_Auth_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -210,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18AAC6812822A5A600620FF7 /* Build configuration list for PBXNativeTarget "Basis-Auth-Demo" */;
 			buildPhases = (
+				1545A3D25BFEDF9B24DE8F95 /* [CP] Check Pods Manifest.lock */,
 				18AAC6692822A5A000620FF7 /* Sources */,
 				18AAC66A2822A5A000620FF7 /* Frameworks */,
 				18AAC66B2822A5A000620FF7 /* Resources */,
+				55F2A7B1FDF8339E14D14171 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,6 +289,7 @@
 			files = (
 				18AAC67D2822A5A600620FF7 /* LaunchScreen.storyboard in Resources */,
 				18AAC6B62822EFB200620FF7 /* 20944201.jpg in Resources */,
+				18AAC7ED2823E14C00620FF7 /* 20943401.jpg in Resources */,
 				18AAC7DC2823C4B100620FF7 /* 20943394.jpg in Resources */,
 				18AAC7EB2823D31F00620FF7 /* 20943659.jpg in Resources */,
 				18AAC67A2822A5A600620FF7 /* Assets.xcassets in Resources */,
@@ -271,6 +298,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1545A3D25BFEDF9B24DE8F95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Basis-Auth-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55F2A7B1FDF8339E14D14171 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basis-Auth-Demo/Pods-Basis-Auth-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basis-Auth-Demo/Pods-Basis-Auth-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basis-Auth-Demo/Pods-Basis-Auth-Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		18AAC6692822A5A000620FF7 /* Sources */ = {
@@ -284,7 +353,6 @@
 				18AAC7E82823D11E00620FF7 /* EmailDashboardInteractor.swift in Sources */,
 				18AAC6C528230F7200620FF7 /* EmailVerifyInteractor.swift in Sources */,
 				18AAC7E62823D11E00620FF7 /* EmailDashboardModels.swift in Sources */,
-				18AAC6732822A5A000620FF7 /* SceneDelegate.swift in Sources */,
 				18AAC6A42822A7B300620FF7 /* EmailLandingPresenter.swift in Sources */,
 				18AAC7E42823D11D00620FF7 /* EmailDashboardWorker.swift in Sources */,
 				18AAC6B22822EC5000620FF7 /* ActivityIndicator.swift in Sources */,
@@ -377,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -432,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -444,9 +512,11 @@
 		};
 		18AAC6822822A5A600620FF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7124F0D152352F1A08ED6ACF /* Pods-Basis-Auth-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 77CLW9XM5U;
@@ -472,9 +542,11 @@
 		};
 		18AAC6832822A5A600620FF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1AA6B86CD738179DA4C5A81 /* Pods-Basis-Auth-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 77CLW9XM5U;
