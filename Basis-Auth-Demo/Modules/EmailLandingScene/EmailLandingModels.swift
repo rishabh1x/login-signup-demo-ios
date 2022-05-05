@@ -31,7 +31,6 @@ enum EmailLanding
         struct LoginViewModel
         {
             var apiSuccess: Bool
-            var isLogin: Bool
         }
     }
     
@@ -54,6 +53,18 @@ enum EmailLanding
         // MARK: - Version
         struct Version: Codable {
             let minimum, current: Int?
+        }
+    }
+    
+    enum PostLoginAction {
+        struct NextStepRequest {
+            var isLogin: Bool
+            var token: Int
+        }
+        struct ViewModel {
+            var isLogin: Bool
+            var token: Int
+            var email: String
         }
     }
 }

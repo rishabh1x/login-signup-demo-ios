@@ -23,6 +23,20 @@
 		18AAC6B02822EBD100620FF7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6AF2822EBD100620FF7 /* Extensions.swift */; };
 		18AAC6B22822EC5000620FF7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6B12822EC5000620FF7 /* ActivityIndicator.swift */; };
 		18AAC6B62822EFB200620FF7 /* 20944201.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC6B52822EFB100620FF7 /* 20944201.jpg */; };
+		18AAC6C028230F7200620FF7 /* EmailVerifyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6BA28230F7200620FF7 /* EmailVerifyPresenter.swift */; };
+		18AAC6C128230F7200620FF7 /* EmailVerifyWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6BB28230F7200620FF7 /* EmailVerifyWorker.swift */; };
+		18AAC6C228230F7200620FF7 /* EmailVerifyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6BC28230F7200620FF7 /* EmailVerifyRouter.swift */; };
+		18AAC6C328230F7200620FF7 /* EmailVerifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6BD28230F7200620FF7 /* EmailVerifyModels.swift */; };
+		18AAC6C428230F7200620FF7 /* EmailVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6BE28230F7200620FF7 /* EmailVerifyViewController.swift */; };
+		18AAC6C528230F7200620FF7 /* EmailVerifyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC6BF28230F7200620FF7 /* EmailVerifyInteractor.swift */; };
+		18AAC7DC2823C4B100620FF7 /* 20943394.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC7DB2823C4B000620FF7 /* 20943394.jpg */; };
+		18AAC7E32823D11D00620FF7 /* EmailDashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC7DD2823D11D00620FF7 /* EmailDashboardPresenter.swift */; };
+		18AAC7E42823D11D00620FF7 /* EmailDashboardWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC7DE2823D11D00620FF7 /* EmailDashboardWorker.swift */; };
+		18AAC7E52823D11E00620FF7 /* EmailDashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC7DF2823D11D00620FF7 /* EmailDashboardRouter.swift */; };
+		18AAC7E62823D11E00620FF7 /* EmailDashboardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC7E02823D11D00620FF7 /* EmailDashboardModels.swift */; };
+		18AAC7E72823D11E00620FF7 /* EmailDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC7E12823D11D00620FF7 /* EmailDashboardViewController.swift */; };
+		18AAC7E82823D11E00620FF7 /* EmailDashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC7E22823D11D00620FF7 /* EmailDashboardInteractor.swift */; };
+		18AAC7EB2823D31F00620FF7 /* 20943659.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18AAC7EA2823D31F00620FF7 /* 20943659.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +58,20 @@
 		18AAC6AF2822EBD100620FF7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		18AAC6B12822EC5000620FF7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		18AAC6B52822EFB100620FF7 /* 20944201.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20944201.jpg; sourceTree = "<group>"; };
+		18AAC6BA28230F7200620FF7 /* EmailVerifyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyPresenter.swift; sourceTree = "<group>"; };
+		18AAC6BB28230F7200620FF7 /* EmailVerifyWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyWorker.swift; sourceTree = "<group>"; };
+		18AAC6BC28230F7200620FF7 /* EmailVerifyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyRouter.swift; sourceTree = "<group>"; };
+		18AAC6BD28230F7200620FF7 /* EmailVerifyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyModels.swift; sourceTree = "<group>"; };
+		18AAC6BE28230F7200620FF7 /* EmailVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyViewController.swift; sourceTree = "<group>"; };
+		18AAC6BF28230F7200620FF7 /* EmailVerifyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyInteractor.swift; sourceTree = "<group>"; };
+		18AAC7DB2823C4B000620FF7 /* 20943394.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20943394.jpg; sourceTree = "<group>"; };
+		18AAC7DD2823D11D00620FF7 /* EmailDashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDashboardPresenter.swift; sourceTree = "<group>"; };
+		18AAC7DE2823D11D00620FF7 /* EmailDashboardWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDashboardWorker.swift; sourceTree = "<group>"; };
+		18AAC7DF2823D11D00620FF7 /* EmailDashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDashboardRouter.swift; sourceTree = "<group>"; };
+		18AAC7E02823D11D00620FF7 /* EmailDashboardModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDashboardModels.swift; sourceTree = "<group>"; };
+		18AAC7E12823D11D00620FF7 /* EmailDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDashboardViewController.swift; sourceTree = "<group>"; };
+		18AAC7E22823D11D00620FF7 /* EmailDashboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDashboardInteractor.swift; sourceTree = "<group>"; };
+		18AAC7EA2823D31F00620FF7 /* 20943659.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20943659.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +140,8 @@
 		18AAC6B42822EF9E00620FF7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				18AAC7EA2823D31F00620FF7 /* 20943659.jpg */,
+				18AAC7DB2823C4B000620FF7 /* 20943394.jpg */,
 				18AAC6B52822EFB100620FF7 /* 20944201.jpg */,
 			);
 			path = Images;
@@ -140,9 +170,37 @@
 		18AAC6B92822FEB000620FF7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				18AAC7E92823D12300620FF7 /* EmailDashboardScene */,
+				18AAC6C628230F7800620FF7 /* EmailVerifyScene */,
 				18AAC6AA2822A7BA00620FF7 /* EmailLandingScene */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		18AAC6C628230F7800620FF7 /* EmailVerifyScene */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC6BA28230F7200620FF7 /* EmailVerifyPresenter.swift */,
+				18AAC6BB28230F7200620FF7 /* EmailVerifyWorker.swift */,
+				18AAC6BC28230F7200620FF7 /* EmailVerifyRouter.swift */,
+				18AAC6BD28230F7200620FF7 /* EmailVerifyModels.swift */,
+				18AAC6BE28230F7200620FF7 /* EmailVerifyViewController.swift */,
+				18AAC6BF28230F7200620FF7 /* EmailVerifyInteractor.swift */,
+			);
+			path = EmailVerifyScene;
+			sourceTree = "<group>";
+		};
+		18AAC7E92823D12300620FF7 /* EmailDashboardScene */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC7DD2823D11D00620FF7 /* EmailDashboardPresenter.swift */,
+				18AAC7DE2823D11D00620FF7 /* EmailDashboardWorker.swift */,
+				18AAC7DF2823D11D00620FF7 /* EmailDashboardRouter.swift */,
+				18AAC7E02823D11D00620FF7 /* EmailDashboardModels.swift */,
+				18AAC7E12823D11D00620FF7 /* EmailDashboardViewController.swift */,
+				18AAC7E22823D11D00620FF7 /* EmailDashboardInteractor.swift */,
+			);
+			path = EmailDashboardScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +263,8 @@
 			files = (
 				18AAC67D2822A5A600620FF7 /* LaunchScreen.storyboard in Resources */,
 				18AAC6B62822EFB200620FF7 /* 20944201.jpg in Resources */,
+				18AAC7DC2823C4B100620FF7 /* 20943394.jpg in Resources */,
+				18AAC7EB2823D31F00620FF7 /* 20943659.jpg in Resources */,
 				18AAC67A2822A5A600620FF7 /* Assets.xcassets in Resources */,
 				18AAC6782822A5A000620FF7 /* Main.storyboard in Resources */,
 			);
@@ -219,16 +279,28 @@
 			files = (
 				18AAC6A62822A7B300620FF7 /* EmailLandingRouter.swift in Sources */,
 				18AAC6712822A5A000620FF7 /* AppDelegate.swift in Sources */,
+				18AAC6C228230F7200620FF7 /* EmailVerifyRouter.swift in Sources */,
+				18AAC6C328230F7200620FF7 /* EmailVerifyModels.swift in Sources */,
+				18AAC7E82823D11E00620FF7 /* EmailDashboardInteractor.swift in Sources */,
+				18AAC6C528230F7200620FF7 /* EmailVerifyInteractor.swift in Sources */,
+				18AAC7E62823D11E00620FF7 /* EmailDashboardModels.swift in Sources */,
 				18AAC6732822A5A000620FF7 /* SceneDelegate.swift in Sources */,
 				18AAC6A42822A7B300620FF7 /* EmailLandingPresenter.swift in Sources */,
+				18AAC7E42823D11D00620FF7 /* EmailDashboardWorker.swift in Sources */,
 				18AAC6B22822EC5000620FF7 /* ActivityIndicator.swift in Sources */,
+				18AAC6C128230F7200620FF7 /* EmailVerifyWorker.swift in Sources */,
 				18AAC6A72822A7B300620FF7 /* EmailLandingModels.swift in Sources */,
+				18AAC6C428230F7200620FF7 /* EmailVerifyViewController.swift in Sources */,
+				18AAC7E52823D11E00620FF7 /* EmailDashboardRouter.swift in Sources */,
+				18AAC6C028230F7200620FF7 /* EmailVerifyPresenter.swift in Sources */,
 				18AAC6A82822A7B300620FF7 /* EmailLandingViewController.swift in Sources */,
+				18AAC7E32823D11D00620FF7 /* EmailDashboardPresenter.swift in Sources */,
 				18AAC6AC2822E38900620FF7 /* RequestManager.swift in Sources */,
 				18AAC6A92822A7B300620FF7 /* EmailLandingInteractor.swift in Sources */,
 				18AAC6AE2822E4BA00620FF7 /* Globals.swift in Sources */,
 				18AAC6B02822EBD100620FF7 /* Extensions.swift in Sources */,
 				18AAC6A52822A7B300620FF7 /* EmailLandingWorker.swift in Sources */,
+				18AAC7E72823D11E00620FF7 /* EmailDashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

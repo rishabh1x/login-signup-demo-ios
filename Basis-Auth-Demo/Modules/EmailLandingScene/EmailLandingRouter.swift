@@ -14,47 +14,64 @@ import UIKit
 
 @objc protocol EmailLandingRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToVerifyScene()
 }
 
 protocol EmailLandingDataPassing
 {
-  var dataStore: EmailLandingDataStore? { get }
+    var dataStore: EmailLandingDataStore? { get }
 }
 
 class EmailLandingRouter: NSObject, EmailLandingRoutingLogic, EmailLandingDataPassing
 {
-  weak var viewController: EmailLandingViewController?
-  var dataStore: EmailLandingDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: EmailLandingViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: EmailLandingDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    weak var viewController: EmailLandingViewController?
+    var dataStore: EmailLandingDataStore?
+    
+    // MARK: Routing
+    func routeToVerifyScene()
+    {
+        print("\nRouting...\n")
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "EmailVerifyViewController") as! EmailVerifyViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToVerifyScene(source: dataStore!, destination: &destinationDS)
+        viewController?.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    
+    // MARK: Passing data
+    func passDataToVerifyScene(source: EmailLandingDataStore, destination: inout EmailVerifyDataStore)
+    {
+        destination.isLogin = source.isLogin
+        destination.token = source.token
+        destination.email = source.email
+    }
+    
+    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    //{
+    //  if let segue = segue {
+    //    let destinationVC = segue.destination as! SomewhereViewController
+    //    var destinationDS = destinationVC.router!.dataStore!
+    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+    //  } else {
+    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
+    //    var destinationDS = destinationVC.router!.dataStore!
+    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
+    //  }
+    //}
+    
+    // MARK: Navigation
+    
+    //func navigateToSomewhere(source: EmailLandingViewController, destination: SomewhereViewController)
+    //{
+    //  source.show(destination, sender: nil)
+    //}
+    
+    // MARK: Passing data
+    
+    //func passDataToSomewhere(source: EmailLandingDataStore, destination: inout SomewhereDataStore)
+    //{
+    //  destination.name = source.name
+    //}
 }

@@ -14,18 +14,26 @@ import UIKit
 
 protocol EmailLandingPresentationLogic
 {
-    func presentSomething(response: EmailLanding.LoginAction.LoginResponse)
+    func presentLoginResponse(response: EmailLanding.LoginAction.LoginResponse)
+    func prepareForRouteVerify(isLogin: Bool, token: Int, email: String)
 }
 
 class EmailLandingPresenter: EmailLandingPresentationLogic
 {
-  weak var viewController: EmailLandingDisplayLogic?
-  
-  // MARK: Do something
-  
-    func presentSomething(response: EmailLanding.LoginAction.LoginResponse)
-  {
-      let viewModel = EmailLanding.LoginAction.LoginViewModel(apiSuccess: response.success, isLogin: response.isLogin)
-      viewController?.loginActionComplete(viewModel: viewModel)
-  }
+    
+    weak var viewController: EmailLandingDisplayLogic?
+    
+    // MARK: Do something
+    
+    func presentLoginResponse(response: EmailLanding.LoginAction.LoginResponse)
+    {
+        let viewModel = EmailLanding.LoginAction.LoginViewModel(apiSuccess: response.success)
+        viewController?.loginActionComplete(viewModel: viewModel)
+    }
+    
+    func prepareForRouteVerify(isLogin: Bool, token: Int, email: String) {
+        let viewModel = EmailLanding.PostLoginAction.ViewModel(isLogin: isLogin, token: token, email: email)
+        viewController?.callRouterForVerifyTransition(viewModel: viewModel)
+    }
+    
 }

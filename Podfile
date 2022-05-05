@@ -6,5 +6,6 @@ target 'Basis-Auth-Demo' do
   use_frameworks!
 
   # Pods for Basis-Auth-Demo
-
+  pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/TextFields'
 end

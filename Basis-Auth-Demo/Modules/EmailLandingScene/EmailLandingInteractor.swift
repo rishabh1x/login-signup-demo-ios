@@ -15,33 +15,49 @@ import UIKit
 protocol EmailLandingBusinessLogic
 {
     func loginUsing(request: EmailLanding.LoginAction.LoginRequest)
+    func routeToVerifyScene()
 }
 
 protocol EmailLandingDataStore
 {
-    var email: String { get set }
+    var isLogin: Bool? { get set }
+    var token: Int? { get set }
+    var email: String? { get set }
 }
 
 class EmailLandingInteractor: EmailLandingDataStore
 {
+    var isLogin: Bool?
+    var token: Int?
+    var email: String?
+    
     var presenter: EmailLandingPresentationLogic?
     var worker: EmailLandingWorker?
-    var email: String = ""
     
     func callApi(request: EmailLanding.LoginAction.LoginRequest, jsonData: String)
     {
+        email = request.email
         worker = EmailLandingWorker()
         worker?.sendLoginRequestToServer(jsonData: jsonData, onCompletion: { [unowned self] apiResponse, success in
-            let tokenReceived = apiResponse?.results?.token ?? 0
-            let isLogin = apiResponse?.results?.isLogin ?? false
+            self.token = apiResponse?.results?.token ?? 0
+            self.isLogin = apiResponse?.results?.isLogin ?? false
             
-            let response = EmailLanding.LoginAction.LoginResponse(success: success, token: tokenReceived, isLogin: isLogin)
-            self.presenter?.presentSomething(response: response)
+            let response = EmailLanding.LoginAction.LoginResponse(success: success, token: self.token ?? 0, isLogin: self.isLogin ?? false)
+            self.presenter?.presentLoginResponse(response: response)
         })
+    }
+    
+    func forwardPostLoginToPresenter(request: EmailLanding.PostLoginAction.NextStepRequest) {
+        self.presenter?.prepareForRouteVerify(isLogin: self.isLogin ?? false, token: self.token ?? 0, email: self.email ?? "")
     }
 }
 
 extension EmailLandingInteractor: EmailLandingBusinessLogic {
+    func routeToVerifyScene() {
+        let request: EmailLanding.PostLoginAction.NextStepRequest = .init(isLogin: self.isLogin ?? false, token: self.token ?? 0)
+        forwardPostLoginToPresenter(request: request)
+    }
+    
     func loginUsing(request: EmailLanding.LoginAction.LoginRequest) {
         let jsonData = "{\"email\":\"\(request.email)\"}"
         

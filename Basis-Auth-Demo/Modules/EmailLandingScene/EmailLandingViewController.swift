@@ -15,6 +15,7 @@ import UIKit
 protocol EmailLandingDisplayLogic: AnyObject
 {
     func loginActionComplete(viewModel: EmailLanding.LoginAction.LoginViewModel)
+    func callRouterForVerifyTransition(viewModel: EmailLanding.PostLoginAction.ViewModel)
 }
 
 class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
@@ -23,7 +24,6 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
     var router: (NSObjectProtocol & EmailLandingRoutingLogic & EmailLandingDataPassing)?
     
     // MARK: Object lifecycle
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -53,16 +53,22 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
     }
     
     // MARK: Routing
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
+    func prepareForVerifyTransition() {
+        if let router = router {
+            router.routeToVerifyScene()
         }
     }
+    /*
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+     {
+     if let scene = segue.identifier {
+     let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+     if let router = router, router.responds(to: selector) {
+     router.perform(selector, with: segue)
+     }
+     }
+     }
+     */
     
     // MARK: View lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +81,7 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
     {
         super.viewDidLoad()
         setTextFieldUI()
+        beautify()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -88,19 +95,39 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
         emailTextField.layer.borderColor = UIColor.systemIndigo.cgColor
     }
     
+    func beautify() {
+        
+        //button
+        
+        
+        //textfield
+    }
+    
     // MARK: Do something
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var buttonGetOTP: UIButton!
     @IBOutlet weak var containerStackViewBottomConstraint: NSLayoutConstraint!
     
     @IBAction func buttonGetOTPPressed(_ sender: Any) {
-        ActivityIndicator.start(controller: self)
-        let request = EmailLanding.LoginAction.LoginRequest(email: "rishabh1x@gmail.com")
-        interactor?.loginUsing(request: request)
+        if validateEmailAgainstRegex() {
+            ActivityIndicator.start(controller: self)
+            let request = EmailLanding.LoginAction.LoginRequest(email: "rishabh1x@gmail.com")
+            interactor?.loginUsing(request: request)
+        }
+        else {
+            emailTextField.layer.borderColor = UIColor.systemRed.cgColor
+        }
     }
     
     @IBAction func emailTextFieldDidBeginEditing(_ sender: UITextField) {
         sender.layer.borderColor = UIColor.systemIndigo.cgColor
+    }
+    
+    func validateEmailAgainstRegex() -> Bool {
+        guard let email = emailTextField.text else { return false }
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
     
     func loginActionComplete(viewModel: EmailLanding.LoginAction.LoginViewModel) {
@@ -111,6 +138,8 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
                 self.buttonGetOTP.isUserInteractionEnabled = false
                 self.buttonGetOTP.backgroundColor = .systemGray2
                 print("\nReady for routing to the -- verify scene\n")
+                
+                self.interactor?.routeToVerifyScene()
             }
             else {
                 self.emailTextField.layer.borderColor = UIColor.systemRed.cgColor
@@ -119,13 +148,17 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
         }
     }
     
+    func callRouterForVerifyTransition(viewModel: EmailLanding.PostLoginAction.ViewModel) {
+        prepareForVerifyTransition()
+    }
+    
     // MARK: Keyboard
     @objc func keyboardWillShow(note:Notification) {
         guard let keyboardFrame = note.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
         let keyboardRect = keyboardFrame.cgRectValue
         let keyboardHeight = keyboardRect.height
         
-        containerStackViewBottomConstraint.constant = keyboardHeight
+        containerStackViewBottomConstraint.constant = keyboardHeight - 20.00
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
