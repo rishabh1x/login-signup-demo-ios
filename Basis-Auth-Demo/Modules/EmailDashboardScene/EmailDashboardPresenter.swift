@@ -22,7 +22,7 @@ class EmailDashboardPresenter: EmailDashboardPresentationLogic
 {
     weak var viewController: EmailDashboardDisplayLogic?
     
-    // MARK: Do something
+    // MARK: Implementations
     
     func displayUserInfo(response: EmailDashboard.UserInformation.Response)
     {

@@ -14,7 +14,7 @@ import UIKit
 
 class EmailDashboardWorker
 {
-  func doSomeWork()
-  {
-  }
+    func doSomeWork()
+    {
+    }
 }

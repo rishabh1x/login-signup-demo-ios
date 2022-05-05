@@ -43,7 +43,7 @@ class EmailDashboardInteractor: EmailDashboardBusinessLogic, EmailDashboardDataS
     var worker: EmailDashboardWorker?
     //var name: String = ""
     
-    // MARK: Do something
+    // MARK: Implementations
     
     func showUserInfo(request: EmailDashboard.UserInformation.Request)
     {

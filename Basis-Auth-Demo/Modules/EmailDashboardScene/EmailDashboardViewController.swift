@@ -72,7 +72,7 @@ class EmailDashboardViewController: UIViewController, EmailDashboardDisplayLogic
         displayUserInformation()
     }
     
-    // MARK: Do something
+    // MARK: Implementations
     
     @IBOutlet weak var retryLoginButton: MDCButton!
     @IBOutlet weak var headingLabel: UILabel!

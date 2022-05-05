@@ -22,7 +22,7 @@ class EmailVerifyPresenter: EmailVerifyPresentationLogic
 {
     weak var viewController: EmailVerifyDisplayLogic?
     
-    // MARK: Do something
+    // MARK: Implementations
     
     func presentInputEmail(response: EmailVerify.GetEmail.Response)
     {

@@ -23,7 +23,7 @@ class EmailLandingPresenter: EmailLandingPresentationLogic
     
     weak var viewController: EmailLandingDisplayLogic?
     
-    // MARK: Do something
+    // MARK: Implementations
     
     func presentLoginResponse(response: EmailLanding.LoginAction.LoginResponse)
     {

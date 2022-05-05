@@ -84,7 +84,7 @@ class EmailLandingViewController: UIViewController, EmailLandingDisplayLogic
         emailTextField.setOutlineColor(Globals.ColorFactory.indigo, for: MDCTextControlState.editing)
     }
     
-    // MARK: Do something
+    // MARK: Implementations
     @IBOutlet weak var emailTextField: MDCOutlinedTextField!
     @IBOutlet weak var buttonGetOTP: UIButton!
     @IBOutlet weak var containerStackViewBottomConstraint: NSLayoutConstraint!
