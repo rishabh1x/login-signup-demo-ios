@@ -43,6 +43,10 @@ Raymond Law @ https://clean-swift.com/
 
 vectorjuice @ https://www.freepik.com/vectorjuice
 
-https://cleancoders.com/
+Clean Architecture - https://cleancoders.com/
 
-https://github.com/rishabh1x
+Google Material Components - https://github.com/material-components/material-components-ios
+
+IQ Keyboard Manager - https://github.com/hackiftekhar/IQKeyboardManager
+
+[https://github.com/rishabh1x]
